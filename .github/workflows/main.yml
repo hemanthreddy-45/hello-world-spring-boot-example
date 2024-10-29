@@ -1,0 +1,16 @@
+name: Maven CI Pipeline
+# Run the workflow on pushes, pull requests to main, and manual dispatch
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch: # Manual trigger
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java-version: [11, 17] # Specify Java versio
